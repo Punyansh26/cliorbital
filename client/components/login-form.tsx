@@ -25,12 +25,12 @@ export const LoginForm = () => {
                             variant="outline"
                             className="w-full h-full"
                             type="button"
-                            onClick={() => authClient.signIn.social(
-                                {
+                            onClick={async () => {
+                                await authClient.signIn.social({
                                     provider: "github",
-                                    callbackURL: "http://localhost:3001"
-                                }
-                            )}
+                                    callbackURL: "/",
+                                });
+                            }}
                         >
                             <Image
                                 src="/GitHub_Invertocat_Black.svg"

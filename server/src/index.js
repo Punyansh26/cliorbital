@@ -15,7 +15,7 @@ app.use(
     })
 )
 
-app.all("/api/auth/*", toNodeHandler(auth));
+app.all("/api/auth/*splat", toNodeHandler(auth));
 
 app.use(express.json()); //only after the auth handler
 
@@ -33,6 +33,8 @@ app.get('/health', (req, res) => {
     res.send('Server is healthy');
 });
 
-app.listen(process.env.PORT, () => {
-    console.log(`Server is running on port ${process.env.PORT}`);
+const PORT = process.env.PORT || 3005;
+
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
